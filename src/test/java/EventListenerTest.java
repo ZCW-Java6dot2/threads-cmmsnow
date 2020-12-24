@@ -4,7 +4,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Map;
 
-public class EventListenerTest {
+public class EventListenerTest extends Thread {
 
     @Test
     public void readToQuit() {
@@ -37,18 +37,21 @@ public class EventListenerTest {
         public boolean itemWasPushed;
         public boolean eventWasHandled;
 
-        @Override
         public Map<String, Integer> tracker() {
+            //return EvenTracker HashMap?
             return null;
         }
 
         @Override
         public void push(String message) {
+            //add message to EventTracker Hashmap as key, return true;
+            //(if already in hashmap, increment counter value)
             itemWasPushed = true;
         }
 
         @Override
-        public boolean has(String message) {
+        public Boolean has(String message) {
+            //if message is a Key in hashmap, return true;
             return true;
         }
 
